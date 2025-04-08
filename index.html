@@ -45,9 +45,24 @@
       display: block;
       border-radius: 12px;
     }
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <!-- 返回鍵 -->
+  <button onclick="history.back()" class="back-button">← 返回</button>
+
   <div class="poster-row">
     <div class="poster-wrapper"><img src="posters/poster1.jpg" alt="海報1"></div>
     <div class="poster-wrapper"><img src="posters/poster2.jpg" alt="海報2"></div>
@@ -58,10 +73,5 @@
     <div class="poster-wrapper"><img src="posters/poster7.jpg" alt="海報7"></div>
     <div class="poster-wrapper"><img src="posters/poster8.jpg" alt="海報8"></div>
   </div>
-  <div style="position: absolute; top: 20px; left: 20px;">
-  <button onclick="history.back()" style="padding: 8px 16px; font-size: 14px; border: none; border-radius: 6px; background-color: #444; color: #fff; cursor: pointer;">
-    ← 返回
-  </button>
-</div>
 </body>
 </html>
