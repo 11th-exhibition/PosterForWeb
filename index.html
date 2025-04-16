@@ -80,26 +80,29 @@
     }
     .poster-hint {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
       background: linear-gradient(135deg, #333, #222);
-      color: #ddd;
-      font-size: 13px;
-      padding: 8px 12px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      font-weight: 500;
-      opacity: 0.9;
-      animation: floatHint 1.5s ease-in-out infinite alternate;
+      color: #fff;
+      font-size: 18px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+      font-weight: 600;
+      opacity: 0.95;
+      text-align: center;
+      animation: floatHint 1.8s ease-in-out infinite alternate;
+      line-height: 1.5;
     }
     @keyframes floatHint {
-      from { transform: translateY(0); }
-      to { transform: translateY(3px); }
+      from { transform: translate(-50%, 0); }
+      to { transform: translate(-50%, 4px); }
     }
   </style>
 </head>
 <body>
-  <div class="poster-hint">📌 點擊海報可放大預覽<br><span style="font-size:11px;">Click to enlarge posters</span></div>
+  <div class="poster-hint">📌 點擊任一張海報可放大預覽<br><span style="font-size:14px;">Click any poster to enlarge</span></div>
   <div class="poster-row">
     <div class="poster-wrapper"><img src="posters/poster1.jpg" alt="海報1"></div>
     <div class="poster-wrapper"><img src="posters/poster2.jpg" alt="海報2"></div>
