@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -44,6 +45,7 @@
       height: auto;
       display: block;
       border-radius: 12px;
+      cursor: zoom-in;
     }
     .back-button {
       position: absolute;
@@ -56,6 +58,25 @@
       background-color: #444;
       color: #fff;
       cursor: pointer;
+    }
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: zoom-out;
+    }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
   </style>
 </head>
@@ -71,16 +92,33 @@
     <div class="poster-wrapper"><img src="posters/poster8.jpg" alt="海報8"></div>
   </div>
   <div style="position: absolute; top: 20px; left: 20px;">
- <button onclick="closeOrWarn()" class="back-button">✕ 關閉分頁</button>
+    <button onclick="closeOrWarn()" class="back-button">✕ 關閉分頁</button>
+  </div>
 
-<script>
-  function closeOrWarn() {
-    const closed = window.close();
-    if (!closed) {
-      alert("若無法自動關閉，請手動關閉分頁。");
+  <div id="lightbox" style="display:none;" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="放大海報">
+  </div>
+
+  <script>
+    document.querySelectorAll('.poster-wrapper img').forEach(img => {
+      img.addEventListener('click', () => {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
     }
-  }
-</script>
-</div>
+
+    function closeOrWarn() {
+      const closed = window.close();
+      if (!closed) {
+        alert("若無法自動關閉，請手動關閉分頁。");
+      }
+    }
+  </script>
 </body>
 </html>
