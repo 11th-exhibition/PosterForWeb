@@ -17,7 +17,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
     .poster-row {
       display: flex;
@@ -78,9 +78,28 @@
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
+    .poster-hint {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #333, #222);
+      color: #ddd;
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      font-weight: 500;
+      opacity: 0.9;
+      animation: floatHint 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes floatHint {
+      from { transform: translateY(0); }
+      to { transform: translateY(3px); }
+    }
   </style>
 </head>
 <body>
+  <div class="poster-hint">📌 點擊海報可放大預覽<br><span style="font-size:11px;">Click to enlarge posters</span></div>
   <div class="poster-row">
     <div class="poster-wrapper"><img src="posters/poster1.jpg" alt="海報1"></div>
     <div class="poster-wrapper"><img src="posters/poster2.jpg" alt="海報2"></div>
